@@ -1,5 +1,8 @@
 import './App.css'
-import ProductPage from './components/ProductPage/ProductPage.tsx';
+import ProductPage from "./components/ProductPage/ProductPage.tsx";
+import hamIcon from "./assets/images/icon-menu.svg";
+import cartIcon from "./assets/images/icon-cart.svg";
+import avatarIcon from "./assets/images/image-avatar.png";
 
 function App() {
 
@@ -8,12 +11,16 @@ function App() {
       {/* Main header that will only load once instead of having header for each page when redirecting. Will always be static at the top*/}
       <header>
         <div className="leftSide">
-          <img src="" alt="" className="logo" />
-          <nav></nav>
+          <button>
+            <img src={hamIcon} alt="A hamburger nav icon"/>
+          </button>
+          <h1>sneakers</h1>
         </div>
         <div className="rightSide">
-          <div className="cartBox">Cart</div>
-          <div className="accountBox">Account</div>
+          <button>
+            <img src={cartIcon} alt="A cart icon" />
+          </button>
+          <img src={avatarIcon} alt="An account avatar icon"/>
         </div>
       </header>
 

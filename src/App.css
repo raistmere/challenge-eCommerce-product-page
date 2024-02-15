@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "KumbhSans-Regular";
+    src: url("./assets/fonts/KumbhSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: "KumbhSans-Bold";
+    src: url("./assets/fonts/KumbhSans-Bold.ttf");
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+
+    /* FONTS */
+    --font-kumbhSans-reg: "KumbhSans-Regular";
+    --font-kumbhSans-bold: "KumbhSans-Bold";
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    /* LEFT SIDE HEADER */
+    > .leftSide {
+        /* I don't know what happened but I can't seem to align the hamburger button with the sneakers text without this*/       
+        height: 3rem;
+        
+        display: flex;
+        gap: 0.75rem;
+        
+        > button {
+            display: flex;
+            align-items: center;
+            border-style: none;
+            > img {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        > h1 {
+            font-family: var(--font-kumbhSans-bold);
+            font-size: 2rem;
+        }
+
+    }
+
+    /* RIGHT SIDE HEADER */
+    > .rightSide {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        > button {
+            border-style: none;
+        }
+
+        > img {
+            width: 1.5rem;
+        }
+    }
+}
