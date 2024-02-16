@@ -5,6 +5,7 @@ import leftArrow from "../../assets/images/icon-previous.svg";
 import rightArrow from "../../assets/images/icon-next.svg";
 import minusIcon from "../../assets/images/icon-minus.svg";
 import plusIcon from "../../assets/images/icon-plus.svg";
+import cartIcon from "../../assets/images/icon-cart.svg";
 
 type Props = {
   productName: string,
@@ -45,8 +46,8 @@ const ProductPage = (props: Props) => {
           </p>
           <div className={styles.productPriceBox}>
             <h2>$125.00</h2>
-            <p>50%</p>
-            <p>$250.00</p>
+            <p className={styles.productDiscount}>50%</p>
+            <p className={styles.productOriginalPrice}>$250.00</p>
           </div>
         </div>
         <div className={styles.productQtyBox}>
@@ -58,7 +59,10 @@ const ProductPage = (props: Props) => {
             <img src={plusIcon} alt="A plus icon" />
           </button>
         </div>
-        <button onClick={addToCart} className={styles.addCartButton}>Add to Cart</button>
+        <button onClick={addToCart} className={styles.addCartButton}>
+          <img src={cartIcon} alt="A cart icon" />
+          <h2>Add to Cart</h2>
+          </button>
       </div>
     </div>
   )
