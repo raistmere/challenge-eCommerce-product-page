@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import styles from "./ProductPage.module.css";
 import productImage1 from "../../assets/images/image-product-1.jpg";
+import productThumb1 from "../../assets/images/image-product-1-thumbnail.jpg";
+import productThumb2 from "../../assets/images/image-product-2-thumbnail.jpg";
+import productThumb3 from "../../assets/images/image-product-3-thumbnail.jpg";
+import productThumb4 from "../../assets/images/image-product-4-thumbnail.jpg";
 import leftArrow from "../../assets/images/icon-previous.svg";
 import rightArrow from "../../assets/images/icon-next.svg";
 import minusIcon from "../../assets/images/icon-minus.svg";
@@ -26,14 +30,33 @@ const ProductPage = (props: Props) => {
   return (
     <div id={styles.productPage}>
       <div className={styles.productImageBox}>
-        <img src={productImage1} alt="A picture of the product" className='productImage'/>
-        <div className={styles.arrowButtonBox}>
-          <button className={styles.prevButton}>
-            <img src={leftArrow} alt="A previous arrow icon" />
-          </button>
-          <button className={styles.nextButton}>
-            <img src={rightArrow} alt="A next arrow icon" />
-          </button>
+        <div className={styles.mobile}>
+          <img src={productImage1} alt="A picture of the product"/>
+          <div className={styles.arrowButtonBox}>
+            <button className={styles.prevButton}>
+              <img src={leftArrow} alt="A previous arrow icon" />
+            </button>
+            <button className={styles.nextButton}>
+              <img src={rightArrow} alt="A next arrow icon" />
+            </button>
+          </div>
+        </div>
+        <div className={styles.desktop}>
+          <img src={productImage1} alt="A picture of the product"/>
+          <div className={styles.thumbBox}>
+            <button>
+              <img src={productThumb1} alt="A picture of the product"/>
+            </button>
+            <button>
+              <img src={productThumb2} alt="A thumbnail of the product" />
+              </button>
+            <button>
+              <img src={productThumb3} alt="A thumbnail of the product" />
+            </button>
+            <button>
+              <img src={productThumb4} alt="A thumbnail of the product" />
+            </button>
+          </div>
         </div>
       </div>
       <div className={styles.productContentBox}>
