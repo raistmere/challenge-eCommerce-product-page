@@ -11,20 +11,16 @@ import minusIcon from "../../assets/images/icon-minus.svg";
 import plusIcon from "../../assets/images/icon-plus.svg";
 import cartIcon from "../../assets/images/icon-cart.svg";
 
-type Props = {
-  productName: string,
-}
+const ProductPage = () => {
+  const [qtyCount, setQtyCount] = useState<number>(0);
 
-const ProductPage = (props: Props) => {
-  const [product, setProduct] = useState();
-  const [count, setCount] = useState(0);
-
-  const fetchProductInfo = () => {
-    // Fetch product from database using fetch() api
+  const incrementCount = () => {
+    setQtyCount((prev) => prev + 1);
   }
 
-  const addToCart = () => {
-    // Add current product to the cart based on count
+  const decrementCount = () => {
+    if(qtyCount === 0) return;
+    setQtyCount((prev) => prev - 1);
   }
 
   return (
@@ -74,15 +70,15 @@ const ProductPage = (props: Props) => {
           </div>
         </div>
         <div className={styles.productQtyBox}>
-          <button>
+          <button aria-label="Decrement count" onClick={decrementCount}>
             <img src={minusIcon} alt="A minus icon" />
           </button>
-          <p>0</p>
-          <button>
+          <h3 aria-description="Prdouct quantity to add to cart">{qtyCount}</h3>
+          <button aria-label="Increment count" onClick={incrementCount}>
             <img src={plusIcon} alt="A plus icon" />
           </button>
         </div>
-        <button onClick={addToCart} className={styles.addCartButton}>
+        <button className={styles.addCartButton}>
           <img src={cartIcon} alt="A cart icon" />
           <h2>Add to Cart</h2>
           </button>
