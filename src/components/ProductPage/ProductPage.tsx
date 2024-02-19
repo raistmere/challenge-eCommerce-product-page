@@ -11,8 +11,20 @@ import minusIcon from "../../assets/images/icon-minus.svg";
 import plusIcon from "../../assets/images/icon-plus.svg";
 import cartIcon from "../../assets/images/icon-cart.svg";
 
-const ProductPage = () => {
+type Props = {
+  id: number,
+  addToCart: Function,
+}
+
+const ProductPage = (props: Props) => {
   const [qtyCount, setQtyCount] = useState<number>(0);
+
+
+  const fetchData = () => {
+    // Here we would use the props.id to fetch the correct data for the product the user is trying to see.
+    // We don't have to do it for this challenge but I want to show that this ProductPage is resusable and scalable if need be
+    // fetch(...../props.id)
+  }
 
   const incrementCount = () => {
     setQtyCount((prev) => prev + 1);
@@ -78,10 +90,10 @@ const ProductPage = () => {
             <img src={plusIcon} alt="A plus icon" />
           </button>
         </div>
-        <button className={styles.addCartButton}>
+        <button className={styles.addCartButton} onClick={() => { props.addToCart(props.id) }}>
           <img src={cartIcon} alt="A cart icon" />
           <h2>Add to Cart</h2>
-          </button>
+        </button>
       </div>
     </div>
   )

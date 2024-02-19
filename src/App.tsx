@@ -9,6 +9,11 @@ import avatarIcon from "./assets/images/image-avatar.png";
 function App() {
   const [cartView, setCartView] = useState<boolean>(false);
 
+
+  const addToCart = (productID: number) => {
+    console.log(`Adding product ${productID} to cart.`);
+  }
+
   return (
     <div id="wrapper">
       {/* Main header that will only load once instead of having header for each page when redirecting. Will always be static at the top*/}
@@ -37,7 +42,10 @@ function App() {
       {/* This main tag will be the main content and any routes that redirect to other parts of the web app. */}
       <main>
         {/* Possible routes: Home, Contact us, About us, etc */}
-        <ProductPage productName='Sneaker'/>
+        {/* I add an assumption that the ProductPage component would be reusable therefore it requires a product id to fetch data to populate component. */}
+        {/* But for the challenge, we aren't required to mimic any api calls to fetch data so for now the ID would be useless and only for demostration */}
+        {/* The id would be popluated based on what product the user wants to see */}
+        <ProductPage id={12345} addToCart={addToCart}/>
       </main>
 
       {/* We want to only render the cart box when we have clicked on the cart button */}
