@@ -39,58 +39,94 @@
     width: 100dvw;
     display: flex;
     flex-direction: column;
-}
-
-/* HEADER */
-header {
-    position: fixed;
-    width: inherit;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    background-color: var(--color-white);
-
-    /* LEFT SIDE HEADER */
-    > .leftSide {
+    
+    /* HEADER */
+    > header {
+        position: fixed;
+        width: inherit;
         display: flex;
-        gap: 1rem;
-        
-        > button {
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem;
+        background-color: var(--color-white);
+    
+        /* LEFT SIDE HEADER */
+        > .leftSide {
             display: flex;
-            align-items: center;
-            border-style: none;
-            background-color: var(--color-white);
-
+            gap: 1rem;
+            
+            > button {
+                display: flex;
+                align-items: center;
+                border-style: none;
+                background-color: var(--color-white);
+    
+                > img {
+                    width: 1.2rem;
+                    height: 1.2rem;
+                }
+            }
+    
             > img {
-                width: 1.2rem;
-                height: 1.2rem;
+                width: fit-content;
+                height: 1.4rem;
+            }
+    
+            > nav {
+                display: none;
             }
         }
-
-        > img {
-            width: fit-content;
-            height: 1.4rem;
-        }
-
-        > nav {
-            display: none;
+    
+        /* RIGHT SIDE HEADER */
+        > .rightSide {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+    
+            > button {
+                border-style: none;
+                background-color: var(--color-white);
+            }
+    
+            > img {
+                width: 2rem;
+            }
         }
     }
 
-    /* RIGHT SIDE HEADER */
-    > .rightSide {
+    > .cartBox {
         display: flex;
-        align-items: center;
-        gap: 1.5rem;
+        flex-direction: column;
+        position: absolute;
+        align-self: center;
+        width: 365px;
+        height: 250px;
+        margin-top: 6rem;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.211);
+        background-color: var(--color-white);
 
-        > button {
-            border-style: none;
-            background-color: var(--color-white);
+        > h2 {
+            font-family: var(--font-kumbhSans-bold);
+            color: var(--color-very-dark-blue);
+            font-size: 1.25rem;
+            padding: 1.5rem;
+            border-bottom-style: solid;
+            border-width: 1px;
+            border-color: var(--color-grayish-blue);
         }
 
-        > img {
-            width: 2rem;
+        > .cartItemBox {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 1rem 1rem;
+
+            > p {
+                font-family: var(--font-kumbhSans-bold);
+                color: var(--color-dark-grayish-blue);
+            }
         }
     }
 }
@@ -133,6 +169,11 @@ header {
             }
     
         }
+        
+        > .cartBox {
+            align-self: flex-end;
+            margin-right: 1rem;
+        }
     }
 }
 
@@ -143,6 +184,11 @@ header {
             align-self: center;
             position: none;
             width: 80%;
+        }
+
+        > .cartBox {
+            align-self: flex-end;
+            margin-right: 10rem;
         }
     }
 }
