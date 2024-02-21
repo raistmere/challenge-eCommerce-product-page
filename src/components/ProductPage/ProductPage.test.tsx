@@ -4,16 +4,20 @@ import userEvent from "@testing-library/user-event";
 import ProductPage from "./ProductPage";
 
 // Default product id that will be used for mocking purposes
-const MOCK_PRODUCT_ID: number = 12345;
+const mockProductItem: { id:number, name:string, count:number } = {
+        id: 1,
+        name: "Fall Limited Edition Sneakers",
+        count: 3
+};
 // We want to create a mock addToCart callback function that will confirm that clicking on the
 // add to cart button will call the callback. We verify this using the mockAddResult. 
 let mockAddResult: string = "";
-const mockAddToCart = (productID: number) => {
-    mockAddResult = `Adding product ${MOCK_PRODUCT_ID} to cart.`;
+const mockAddToCart = () => {
+    mockAddResult = `Adding product ${mockProductItem.id} to cart.`;
 }
 
 // Arrange
-const ren = render(<ProductPage id={MOCK_PRODUCT_ID} addToCart={mockAddToCart}/>);
+const ren = render(<ProductPage product={mockProductItem} addMethod={mockAddToCart}/>);
 const user = userEvent.setup();
 
 describe("Product quantity counter functionality", () => {
@@ -52,6 +56,6 @@ describe("Add to Cart button functionality", () => {
         // Act
         await user.click(addButton);
         // Assert
-        expect(mockAddResult).toBe(`Adding product ${MOCK_PRODUCT_ID} to cart.`);
+        expect(mockAddResult).toBe(`Adding product ${mockProductItem.id} to cart.`);
     });
 })

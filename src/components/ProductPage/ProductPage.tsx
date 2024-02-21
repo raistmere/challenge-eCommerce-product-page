@@ -12,8 +12,11 @@ import plusIcon from "../../assets/images/icon-plus.svg";
 import cartIcon from "../../assets/images/icon-cart.svg";
 
 type Props = {
-  id: number,
-  addToCart: Function,
+  product: {
+      id: number,
+      name: string,
+  },
+  addMethod: Function,
 }
 
 const ProductPage = (props: Props) => {
@@ -90,7 +93,7 @@ const ProductPage = (props: Props) => {
             <img src={plusIcon} alt="A plus icon" />
           </button>
         </div>
-        <button className={styles.addCartButton} onClick={() => { props.addToCart(props.id) }}>
+        <button className={styles.addCartButton} onClick={() => { props.addMethod(qtyCount) }}>
           <img src={cartIcon} alt="A cart icon" />
           <h2>Add to Cart</h2>
         </button>

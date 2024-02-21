@@ -1,0 +1,68 @@
+.cartBox {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-self: center;
+    width: 365px;
+    height: 250px;
+    margin-top: 6rem;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.211);
+    background-color: var(--color-white);
+
+    > h2 {
+        font-family: var(--font-kumbhSans-bold);
+        color: var(--color-very-dark-blue);
+        font-size: 1.25rem;
+        padding: 1.5rem;
+        border-bottom-style: solid;
+        border-width: 1px;
+        border-color: var(--color-grayish-blue);
+    }
+
+    > .cartItemBox {
+        flex: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 0 0 1rem 1rem;
+
+        > p {
+            font-family: var(--font-kumbhSans-bold);
+            color: var(--color-dark-grayish-blue);
+        }
+
+        > .cartItem {
+            display: flex;
+            background-color: salmon;
+
+            > img {
+                width: 15%;
+            }
+
+            > .textBox {
+                flex: 1;
+            }
+
+            > button {
+                width: 15%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 700px) {
+            
+    .cartBox {
+        align-self: flex-end;
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .cartBox {
+        align-self: flex-end;
+        margin-right: 10rem;
+    }
+}
