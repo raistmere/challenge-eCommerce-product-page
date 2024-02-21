@@ -13,14 +13,21 @@ type Props = {
 const Cart = (props: Props) => {
     
     const createItems = () => {
-        if(props.items.length <= 0) return (<p>Your cart is empty.</p>);
+        if(props.items.length <= 0) return (
+            <div className={styles.emptyCartBox}>
+                <p>Your cart is empty.</p>
+            </div>
+        );
 
         return (
             <div className={styles.cartItem}>
                 <img src={productThumbnail} alt="Product thumbnail" />
-                <div className="textBox">
+                <div className={styles.textBox}>
                     <h3>{props.items[0].name}</h3>
-                    <p>$125.00 x {props.items[0].count} ${125 * props.items[0].count}</p>
+                    <div className={styles.priceBox}>
+                        <p>$125.00 x {props.items[0].count}</p>
+                        <p className={styles.totalPrice}>${125 * props.items[0].count}</p>
+                    </div>
                 </div>
                 <button className={styles.deleteItemButton} aria-label="Delete item button">
                     <img src={trashcanIcon} alt="Delete trashcan image" />
@@ -31,10 +38,17 @@ const Cart = (props: Props) => {
 
     return (
         <div className={styles.cartBox}>
-        <h2>Cart</h2>
-        <div className={styles.cartItemBox}>
-          {createItems()}
-        </div>
+            <h2>Cart</h2>
+            <div className={styles.cartItemBox}>
+                {createItems()}
+            </div>
+            {props.items.length > 0 &&
+                <div className={styles.checkoutBox}>
+                    <button className={styles.checkoutButton}>
+                        Checkout
+                    </button>
+                </div>
+            }
       </div>
     );
 };

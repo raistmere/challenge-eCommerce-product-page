@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1708554376134" clover="3.2.0">
-  <project timestamp="1708554376134" name="All files">
-    <metrics statements="216" coveredstatements="203" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="5" elements="233" coveredelements="215" complexity="0" loc="216" ncloc="216" packages="3" files="3" classes="3"/>
+<coverage generated="1708556004401" clover="3.2.0">
+  <project timestamp="1708556004401" name="All files">
+    <metrics statements="219" coveredstatements="206" conditionals="7" coveredconditionals="7" methods="10" coveredmethods="5" elements="236" coveredelements="218" complexity="0" loc="219" ncloc="219" packages="3" files="3" classes="3"/>
     <package name="src">
       <metrics statements="69" coveredstatements="65" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="2"/>
       <file name="App.tsx" path="/home/raistmere/repos/challenge-eCommerce-product-page/src/App.tsx">
@@ -78,9 +78,9 @@
       </file>
     </package>
     <package name="src.components.Cart">
-      <metrics statements="42" coveredstatements="42" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <metrics statements="45" coveredstatements="45" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="Cart.tsx" path="/home/raistmere/repos/challenge-eCommerce-product-page/src/components/Cart/Cart.tsx">
-        <metrics statements="42" coveredstatements="42" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <metrics statements="45" coveredstatements="45" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -109,9 +109,9 @@
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
         <line num="32" count="2" type="stmt"/>
         <line num="33" count="2" type="stmt"/>
         <line num="34" count="2" type="stmt"/>
@@ -121,8 +121,11 @@
         <line num="38" count="2" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
         <line num="40" count="2" type="stmt"/>
-        <line num="41" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ProductPage">
