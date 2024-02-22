@@ -14,9 +14,16 @@ function App() {
 
 
   const addToCart = (qtyCount: number) => {
-    console.log(`Adding product ${currentProduct.current.id} to cart.`);
     const newItem = { id: currentProduct.current.id, name: currentProduct.current.name, price: currentProduct.current.price, count: qtyCount};
-    setCartList((prev) => [...prev, newItem]);
+    let item = cartList.find((element) => element.id === newItem.id ? element : null);
+    if(item?.count) {
+      newItem.count += item.count;
+      let newList = cartList.map((element) => element.id === newItem.id ? newItem : element);
+      setCartList(newList);
+    }
+    else {
+      setCartList((prev) => [...prev, newItem]);
+    }
   }
 
   return (
