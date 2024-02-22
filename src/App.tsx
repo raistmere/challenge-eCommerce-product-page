@@ -9,13 +9,13 @@ import avatarIcon from "./assets/images/image-avatar.png";
 
 function App() {
   const [cartView, setCartView] = useState<boolean>(false);
-  const [cartList, setCartList] = useState<Array<{ id:number, name:string, count:number }>>([]);
-  const currentProduct = useRef<{ id:number, name:string}>({id:1234, name:"Fall Limited Edition Sneakers"});
+  const [cartList, setCartList] = useState<Array<{ id:number, name:string, price: number, count:number }>>([]);
+  const currentProduct = useRef<{ id:number, name:string, price:number }>({id:1234, name:"Fall Limited Edition Sneakers", price: 125});
 
 
   const addToCart = (qtyCount: number) => {
     console.log(`Adding product ${currentProduct.current.id} to cart.`);
-    const newItem = { id: currentProduct.current.id, name: currentProduct.current.name, count: qtyCount};
+    const newItem = { id: currentProduct.current.id, name: currentProduct.current.name, price: currentProduct.current.price, count: qtyCount};
     setCartList((prev) => [...prev, newItem]);
   }
 
@@ -55,7 +55,7 @@ function App() {
 
       {/* We want to only render the cart box when we have clicked on the cart button */}
       {cartView && 
-        <Cart items={cartList}/>
+        <Cart items={cartList} updateCartMethod={setCartList}/>
       }
       
 

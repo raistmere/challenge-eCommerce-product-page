@@ -6,12 +6,18 @@ type Props = {
     items: Array<{
             id: number,
             name: string,
+            price: number,
             count: number
-        }>
+        }>,
+    updateCartMethod: Function
 }
 
 const Cart = (props: Props) => {
     
+    // We loop through the items and create new elements to appear in the cart box.
+    // Right now there is no loop but just a single item to test out the functionality. We are assuming
+    // that there is only one item to add (which is true based off the challenge) but it will still function given
+    // a array list of items.
     const createItems = () => {
         if(props.items.length <= 0) return (
             <div className={styles.emptyCartBox}>
@@ -26,15 +32,23 @@ const Cart = (props: Props) => {
                     <h3>{props.items[0].name}</h3>
                     <div className={styles.priceBox}>
                         <p>$125.00 x {props.items[0].count}</p>
-                        <p className={styles.totalPrice}>${125 * props.items[0].count}</p>
+                        <p className={styles.totalPrice}>${props.items[0].price * props.items[0].count}</p>
                     </div>
                 </div>
-                <button className={styles.deleteItemButton} aria-label="Delete item button">
+                {/* On click we want to go ahead and delete the item from the item list in our props */}
+                <button className={styles.deleteItemButton} aria-label="Delete item button" onClick={() => { deleteCartItem(0)}}>
                     <img src={trashcanIcon} alt="Delete trashcan image" />
                 </button>
             </div>
         );
     };
+
+    const deleteCartItem = (index:number) => {
+        console.log("Deleting item");
+        const newCartList = props.items.slice(index, index);
+        console.log(newCartList);
+        props.updateCartMethod(newCartList);
+    }
 
     return (
         <div className={styles.cartBox}>
