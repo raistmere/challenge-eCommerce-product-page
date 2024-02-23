@@ -1,0 +1,96 @@
+#imageCarouselWrapper {
+    position:absolute;
+    left: 0px;
+    top: 0px;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    > .CarouselBox {
+        width: 550px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        > .closeButton {
+            align-self: end;
+            margin-right: 1rem;
+            border-style: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            > img {
+                height: 1.30rem;
+                filter: brightness(1000%);
+            }
+        }
+
+        > .bigImageBox {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-template-rows: 1fr;
+
+
+            > img {
+                grid-column: 1/-1;
+                grid-row: 1/-1;
+                width: 100%;
+                padding: 1rem;
+                border-radius: 1.75rem;
+            }
+            
+            > button {
+                width: 3.5rem;
+                height: 3.5rem;
+                align-items: center;
+                justify-content: center;
+                border-radius: 100%;
+                border-style: none;
+            }
+
+            > .leftArrowButton {
+                grid-column: 1/2;
+                grid-row: 1/-1;
+                align-self: center;
+
+                > img {
+                    width: 25%;
+                    height: auto;
+                }
+            }
+
+            > .rightArrowButton {
+                grid-column: 3/4;
+                grid-row: 1/-1;
+                align-self: center;
+                justify-self: end;
+
+                > img {
+                    width: 25%;
+                    height: auto;
+                }
+            }
+        }
+
+        > .thumbBox {
+            display: flex;
+            padding: 0 4rem 0 4rem;
+            gap: 1.5rem;
+            
+            > button {
+                border-style: none;
+                background-color: rgba(255, 255, 255, 0);
+                border-radius: 1rem;
+
+                > img {
+                    width: 100%;
+                    border-radius: 1rem;
+                }
+            }
+        }
+    }
+}

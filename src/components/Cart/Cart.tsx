@@ -45,7 +45,6 @@ const Cart = (props: Props) => {
 
     const deleteCartItem = (index:number) => {
         const newCartList = props.items.slice(index, index);
-        console.log(newCartList);
         props.updateCartMethod(newCartList);
     }
 

@@ -48,7 +48,7 @@ describe("Product quantity counter functionality", () => {
     })
 });
 
-describe("Add to Cart button functionality", () => {
+describe("Cart Button Functionality", () => {
     // Arrange
     const addButton = ren.getByRole("button", {name: /Add to Cart/i});
 
@@ -59,3 +59,16 @@ describe("Add to Cart button functionality", () => {
         expect(mockAddResult).toBe(`Adding product ${mockProductItem.id} to cart.`);
     });
 })
+
+describe("Image Carousel Functioanility", () => {
+
+    test("Check if we can open popup image carousel", async () => {
+        // Arrange
+        const bigImageElement = ren.getByRole("button", {name: "open popup image carousel"});
+        // Act
+        await user.click(bigImageElement);
+        const popupImageCarousel = ren.getByRole("button", {name: "x close button"});
+        // Assert
+        expect(popupImageCarousel).not.toBeNull;
+    });
+});

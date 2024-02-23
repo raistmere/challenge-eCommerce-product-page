@@ -186,9 +186,16 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
-
-                > img {
+                
+                > .popupCarouselButton {
+                    border-style: none;
                     border-radius: 1rem;
+                    background-color: rgba(255, 255, 255, 0);
+                    
+                    > img {
+                        width: 100%;
+                        border-radius: 1rem;
+                    }
                 }
 
                 > .thumbBox {

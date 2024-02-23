@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import styles from "./ProductPage.module.css";
+import ImageCarousel from '../ImageCarousel/ImageCarousel';
+
+// Images && Icons
 import productImage1 from "../../assets/images/image-product-1.jpg";
 import productThumb1 from "../../assets/images/image-product-1-thumbnail.jpg";
 import productThumb2 from "../../assets/images/image-product-2-thumbnail.jpg";
@@ -20,6 +23,7 @@ type Props = {
 }
 
 const ProductPage = (props: Props) => {
+  const [popupCarouselView, setPopupCarouselView] = useState<boolean>(false);
   const [qtyCount, setQtyCount] = useState<number>(0);
 
 
@@ -53,7 +57,9 @@ const ProductPage = (props: Props) => {
           </div>
         </div>
         <div className={styles.desktop}>
-          <img src={productImage1} alt="A picture of the product"/>
+          <button className={styles.popupCarouselButton} aria-label='open popup image carousel' onClick={() => setPopupCarouselView(true)}>
+            <img src={productImage1} alt="A picture of the product"/>
+          </button>
           <div className={styles.thumbBox}>
             <button>
               <img src={productThumb1} alt="A picture of the product"/>
@@ -98,6 +104,11 @@ const ProductPage = (props: Props) => {
           <h2>Add to Cart</h2>
         </button>
       </div>
+
+      {/* Image Carousel that only shows up when the user clicks on the main product image (not the thumbnails) */}
+      {popupCarouselView &&
+        <ImageCarousel />
+      }
     </div>
   )
 }
