@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { render } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import ProductPage from "./ProductPage";
 
@@ -60,15 +60,24 @@ describe("Cart Button Functionality", () => {
     });
 })
 
-describe("Image Carousel Functioanility", () => {
-
-    test("Check if we can open popup image carousel", async () => {
+describe("Image Carousel Functioanility", async () => {
         // Arrange
         const bigImageElement = ren.getByRole("button", {name: "open popup image carousel"});
         // Act
         await user.click(bigImageElement);
-        const popupImageCarousel = ren.getByRole("button", {name: "x close button"});
+        
+
+    test("Check if we can open popup image carousel", async () => {
         // Assert
-        expect(popupImageCarousel).not.toBeNull;
+        expect(ren.getByRole("button", {name: "x close button"})).not.toBeNull();
+    });
+
+    test("Check if we can close popup image carousel", async () => {
+        // Arrange
+        const closeButton = ren.getByRole("button", {name: "x close button"});
+        // Act
+        await user.click(closeButton);
+        // Assert
+        expect(ren.queryByRole("button", {name: "x close button"})).toBeNull;
     });
 });

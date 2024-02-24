@@ -107,7 +107,7 @@ const ProductPage = (props: Props) => {
 
       {/* Image Carousel that only shows up when the user clicks on the main product image (not the thumbnails) */}
       {popupCarouselView &&
-        <ImageCarousel />
+        <ImageCarousel closeMethod={setPopupCarouselView}/>
       }
     </div>
   )

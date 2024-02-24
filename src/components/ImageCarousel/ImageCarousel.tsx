@@ -10,11 +10,15 @@ import leftArrow from "../../assets/images/icon-previous.svg";
 import rightArrow from "../../assets/images/icon-next.svg";
 import closeIcon from "../../assets/images/icon-close.svg";
 
-const ImageCarousel = () => {
+type Props = {
+    closeMethod: Function
+}
+
+const ImageCarousel = (props: Props) => {
     return (
         <div id={styles.imageCarouselWrapper}>
             <div className={styles.CarouselBox}>
-                <button className={styles.closeButton} aria-label="x close button">
+                <button className={styles.closeButton} aria-label="x close button" onClick={() => props.closeMethod(false)}>
                     <img src={closeIcon} alt="An X icon" />
                 </button>
                 <div className={styles.bigImageBox}>
