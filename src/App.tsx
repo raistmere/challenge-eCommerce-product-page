@@ -1,6 +1,7 @@
 import './App.css'
 import { useRef, useState } from 'react';
 import ProductPage from "./components/ProductPage/ProductPage.tsx";
+import PopupNavMenu from './components/PopupNavMenu/PopupNavMenu.tsx';
 import Cart from './components/Cart/Cart.tsx';
 import hamIcon from "./assets/images/icon-menu.svg";
 import logoImg from "./assets/images/logo.svg";
@@ -9,6 +10,7 @@ import avatarIcon from "./assets/images/image-avatar.png";
 
 function App() {
   const [cartView, setCartView] = useState<boolean>(false);
+  const [popupNavView, setPopupNavView] = useState<boolean>(false);
   const [cartList, setCartList] = useState<Array<{ id:number, name:string, price: number, count:number }>>([]);
   const currentProduct = useRef<{ id:number, name:string, price:number }>({id:1234, name:"Fall Limited Edition Sneakers", price: 125});
 
@@ -26,17 +28,21 @@ function App() {
     }
   }
 
+  const closePopupNav = () => {
+    setPopupNavView(false);
+  }
+
   return (
     <div id="wrapper">
       {/* Main header that will only load once instead of having header for each page when redirecting. Will always be static at the top*/}
       <header>
         <div className="leftSide">
-          <button aria-label="open nav menu">
+          <button aria-label="open popup nav menu" onClick={() => setPopupNavView(true)}>
             <img src={hamIcon} alt="A hamburger nav icon"/>
           </button>
           <img src={logoImg} alt="Company logo" />
           <nav>
-            <a href="">DESKTOP: Collections</a>
+            <a href="">Collections</a>
             <a href="">Men</a>
             <a href="">Women</a>
             <a href="">About</a>
@@ -64,7 +70,11 @@ function App() {
       {cartView && 
         <Cart items={cartList} updateCartMethod={setCartList}/>
       }
-      
+
+      {/* We want to only render the popup nav menu when we have clicked on the hamburger open nav menu button*/}
+      {popupNavView &&
+        <PopupNavMenu closeMethod={closePopupNav}/>
+      }
 
       {/* There isn't a footer yet but most websites would have some type of content info at the moment like: contact, about, etc 
           Currently using the footer as a space gap between main content and bottom of the page*/}
