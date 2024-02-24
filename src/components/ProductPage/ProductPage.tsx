@@ -66,23 +66,39 @@ const ProductPage = (props: Props) => {
     setQtyCount((prev) => prev - 1);
   }
 
+  const incrementLargeImageIndex = () => {
+    if(largeImageIndex >= largeImageGallery.current.length - 1) {
+      setLargeImageIndex(0);
+    } else {
+      setLargeImageIndex((prev) => prev + 1);
+    }
+  }
+
+  const decrementLargeImageIndex = () => {
+    if(largeImageIndex <= 0) {
+      setLargeImageIndex(largeImageGallery.current.length - 1);
+    } else {
+      setLargeImageIndex((prev) => prev - 1);
+    }
+  }
+
   return (
     <div id={styles.productPage}>
       <div className={styles.productImageBox}>
         <div className={styles.mobile}>
-          <img src={productImage1} alt="A picture of the product"/>
+          <img src={largeImageGallery.current[largeImageIndex].src} alt={"mobile " + largeImageGallery.current[largeImageIndex].alt}/>
           <div className={styles.arrowButtonBox}>
-            <button className={styles.prevButton}>
+            <button className={styles.prevButton} aria-label='previous image button' onClick={() => decrementLargeImageIndex()}>
               <img src={leftArrow} alt="A previous arrow icon" />
             </button>
-            <button className={styles.nextButton}>
+            <button className={styles.nextButton} aria-label='next image button' onClick={() => incrementLargeImageIndex()}>
               <img src={rightArrow} alt="A next arrow icon" />
             </button>
           </div>
         </div>
         <div className={styles.desktop}>
           <button className={styles.popupCarouselButton} aria-label='open popup image carousel' onClick={() => setPopupCarouselView(true)}>
-            <img src={largeImageGallery.current[largeImageIndex].src} alt={largeImageGallery.current[largeImageIndex].alt}/>
+            <img src={largeImageGallery.current[largeImageIndex].src} alt={"desktop " + largeImageGallery.current[largeImageIndex].alt}/>
           </button>
           <div className={styles.thumbBox}>
             <button onClick={() => setLargeImageIndex(0)}>

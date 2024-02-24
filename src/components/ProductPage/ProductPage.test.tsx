@@ -62,11 +62,24 @@ describe("Cart Button Functionality", () => {
 
 describe("Image Carousel Functioanility", async () => {
 
-    test("Check if pressing thumnail image will switch large product image", () => {
+    // This works on live but for some reason I still can't test responsive design with unit tests.
+    // I been manipulating window. or globalThis. but never resized the window. No solution as of now.
+    // test("Check right then left arrows on mobile image carousel", () => {
+    //     // Act
+    //     user.click(ren.getByRole("button", {name: "next image button"}));
+    //     // Assert
+    //     expect(ren.queryByAltText("mobile second large product image")).not.toBeNull();
+    //     // Act
+    //     user.click(ren.getByRole("button", {name: "previous image button"}));
+    //     // Assert
+    //     expect(ren.queryByAltText("mobile first large product image")).not.toBeNull();
+    // });
+
+    test("Check if pressing desktop thumnail image will switch large product image", async () => {
         // Act
-        user.click(ren.getByRole("button", {name: "select second image thubmnail"}));
+        await user.click(ren.getByRole("button", {name: "select second image thubmnail"}));
         // Assert
-        expect(ren.queryByAltText("second large product image")).not.toBeNull
+        expect(ren.queryByAltText("desktop second large product image")).not.toBeNull();
     });
 
     test("Check if we can open popup image carousel", async () => {
@@ -80,6 +93,6 @@ describe("Image Carousel Functioanility", async () => {
         // Act
         await user.click(ren.getByRole("button", {name: "x close button"}));
         // Assert
-        expect(ren.queryByRole("button", {name: "x close button"})).toBeNull;
+        expect(ren.queryByRole("button", {name: "x close button"})).toBeNull();
     });
 });
