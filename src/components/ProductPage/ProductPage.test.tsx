@@ -61,22 +61,24 @@ describe("Cart Button Functionality", () => {
 })
 
 describe("Image Carousel Functioanility", async () => {
-        // Arrange
-        const bigImageElement = ren.getByRole("button", {name: "open popup image carousel"});
+
+    test("Check if pressing thumnail image will switch large product image", () => {
         // Act
-        await user.click(bigImageElement);
-        
+        user.click(ren.getByRole("button", {name: "select second image thubmnail"}));
+        // Assert
+        expect(ren.queryByAltText("second large product image")).not.toBeNull
+    });
 
     test("Check if we can open popup image carousel", async () => {
+        // Act
+        await user.click(ren.getByRole("button", {name: "open popup image carousel"}));
         // Assert
-        expect(ren.getByRole("button", {name: "x close button"})).not.toBeNull();
+        expect(ren.queryByRole("button", {name: "x close button"})).not.toBeNull();
     });
 
     test("Check if we can close popup image carousel", async () => {
-        // Arrange
-        const closeButton = ren.getByRole("button", {name: "x close button"});
         // Act
-        await user.click(closeButton);
+        await user.click(ren.getByRole("button", {name: "x close button"}));
         // Assert
         expect(ren.queryByRole("button", {name: "x close button"})).toBeNull;
     });

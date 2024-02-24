@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { ReactElement, useRef, useState } from 'react';
 import styles from "./ProductPage.module.css";
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 
 // Images && Icons
 import productImage1 from "../../assets/images/image-product-1.jpg";
+import productImage2 from "../../assets/images/image-product-2.jpg";
+import productImage3 from "../../assets/images/image-product-3.jpg";
+import productImage4 from "../../assets/images/image-product-4.jpg";
 import productThumb1 from "../../assets/images/image-product-1-thumbnail.jpg";
 import productThumb2 from "../../assets/images/image-product-2-thumbnail.jpg";
 import productThumb3 from "../../assets/images/image-product-3-thumbnail.jpg";
@@ -25,6 +28,27 @@ type Props = {
 const ProductPage = (props: Props) => {
   const [popupCarouselView, setPopupCarouselView] = useState<boolean>(false);
   const [qtyCount, setQtyCount] = useState<number>(0);
+  // For now we will store all large images into an array to access them when we start switching them
+  // based on the thumnail we select. We will use the largeImageIndex to select the correct src & alt strings.
+  const [largeImageIndex, setLargeImageIndex] = useState<number>(0);
+  const largeImageGallery = useRef<Array<{src: string, alt: string}>>([
+    {
+      src:`${productImage1}`,
+      alt: "first large product image",
+    },
+    {
+      src: `${productImage2}`,
+      alt: "second large product image",
+    },
+    {
+      src: `${productImage3}`,
+      alt: "third large product image",
+    },
+    {
+      src: `${productImage4}`,
+      alt: "fourth large product image",
+    },
+  ]);
 
 
   const fetchData = () => {
@@ -58,20 +82,20 @@ const ProductPage = (props: Props) => {
         </div>
         <div className={styles.desktop}>
           <button className={styles.popupCarouselButton} aria-label='open popup image carousel' onClick={() => setPopupCarouselView(true)}>
-            <img src={productImage1} alt="A picture of the product"/>
+            <img src={largeImageGallery.current[largeImageIndex].src} alt={largeImageGallery.current[largeImageIndex].alt}/>
           </button>
           <div className={styles.thumbBox}>
-            <button>
-              <img src={productThumb1} alt="A picture of the product"/>
+            <button onClick={() => setLargeImageIndex(0)}>
+              <img src={productThumb1} alt="select first image thubmnail"/>
             </button>
-            <button>
-              <img src={productThumb2} alt="A thumbnail of the product" />
-              </button>
-            <button>
-              <img src={productThumb3} alt="A thumbnail of the product" />
+            <button onClick={() => setLargeImageIndex(1)}>
+              <img src={productThumb2} alt="select second image thubmnail" />
             </button>
-            <button>
-              <img src={productThumb4} alt="A thumbnail of the product" />
+            <button onClick={() => setLargeImageIndex(2)}>
+              <img src={productThumb3} alt="select third image thubmnail" />
+            </button>
+            <button onClick={() => setLargeImageIndex(3)}>
+              <img src={productThumb4} alt="select fourth image thubmnail" />
             </button>
           </div>
         </div>
