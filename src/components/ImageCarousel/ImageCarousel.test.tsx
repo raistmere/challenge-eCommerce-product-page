@@ -42,6 +42,6 @@ describe("Image Carousel Functionality", () => {
         // Act
         await user.click(ren.getByRole("button", {name: "view second large image button"}));
         // Assert
-
+        expect(ren.queryByAltText(mockLargeImageGallery[1].alt)).not.toBeNull();
     });
 })

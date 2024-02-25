@@ -35,6 +35,10 @@ const ImageCarousel = (props: Props) => {
         }
     }
 
+    const viewImage = (index: number) => {
+        setGalleryIndex(index);
+    }
+
     return (
         <div id={styles.imageCarouselWrapper}>
             <div className={styles.CarouselBox}>
@@ -51,16 +55,16 @@ const ImageCarousel = (props: Props) => {
                     </button>
                 </div>
                 <div className={styles.thumbBox}>
-                    <button>
+                    <button aria-label="view first large image button" onClick={() => viewImage(0)}>
                     <img src={productThumb1} alt="A picture of the product"/>
                     </button>
-                    <button>
+                    <button aria-label="view second large image button" onClick={() => viewImage(1)}>
                     <img src={productThumb2} alt="A thumbnail of the product" />
                     </button>
-                    <button>
+                    <button aria-label="view third large image button" onClick={() => viewImage(2)}>
                     <img src={productThumb3} alt="A thumbnail of the product" />
                     </button>
-                    <button>
+                    <button aria-label="view fourth large image button" onClick={() => viewImage(3)}>
                     <img src={productThumb4} alt="A thumbnail of the product" />
                     </button>
                 </div>
