@@ -82,6 +82,14 @@ const ProductPage = (props: Props) => {
     }
   }
 
+  const openPopupCarouselView = () => {
+    setPopupCarouselView(true);
+  }
+
+  const closePopupCarouselView = () => {
+    setPopupCarouselView(false);
+  }
+
   return (
     <div id={styles.productPage}>
       <div className={styles.productImageBox}>
@@ -97,7 +105,7 @@ const ProductPage = (props: Props) => {
           </div>
         </div>
         <div className={styles.desktop}>
-          <button className={styles.popupCarouselButton} aria-label='open popup image carousel' onClick={() => setPopupCarouselView(true)}>
+          <button className={styles.popupCarouselButton} aria-label='open popup image carousel' onClick={() => openPopupCarouselView()}>
             <img src={largeImageGallery.current[largeImageIndex].src} alt={"desktop " + largeImageGallery.current[largeImageIndex].alt}/>
           </button>
           <div className={styles.thumbBox}>
@@ -147,7 +155,7 @@ const ProductPage = (props: Props) => {
 
       {/* Image Carousel that only shows up when the user clicks on the main product image (not the thumbnails) */}
       {popupCarouselView &&
-        <ImageCarousel closeMethod={setPopupCarouselView}/>
+        <ImageCarousel largeImageGallery={largeImageGallery.current} closeCarouselMethod={closePopupCarouselView}/>
       }
     </div>
   )
