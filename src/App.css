@@ -84,8 +84,36 @@
             gap: 1.5rem;
     
             > button {
+                display: grid;
+                grid-template-columns: 20px 25px;
+                grid-template-rows: 20px 20px;
                 border-style: none;
                 background-color: var(--color-white);
+
+                > img {
+                    width: 2rem;
+                    grid-column: 1/-1;
+                    grid-row: 1/-1;
+                    align-self: center;
+                    justify-self: center;
+                }
+
+                > .cartCountBox {
+                    grid-column: 2/-1;
+                    grid-row: 1/2;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 1rem;
+                    background-color: var(--color-orange);
+
+                    > p {
+                        font-size: 0.85rem;
+                        font-family: var(--font-kumbhSans-bold);
+                        color: var(--color-white);
+                    }
+                }
             }
     
             > img {

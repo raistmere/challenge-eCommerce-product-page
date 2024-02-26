@@ -27,7 +27,7 @@ const Cart = (props: Props) => {
 
         return (
             <div className={styles.cartItem}>
-                <img src={productThumbnail} alt="Product thumbnail" />
+                <img src={productThumbnail} alt="prodcut image thumbnail" />
                 <div className={styles.textBox}>
                     <h3>{props.items[0].name}</h3>
                     <div className={styles.priceBox}>
@@ -36,7 +36,7 @@ const Cart = (props: Props) => {
                     </div>
                 </div>
                 {/* On click we want to go ahead and delete the item from the item list in our props */}
-                <button className={styles.deleteItemButton} aria-label="Delete item button" onClick={() => { deleteCartItem(0)}}>
+                <button className={styles.deleteItemButton} aria-label="delete item button" onClick={() => { deleteCartItem(0)}}>
                     <img src={trashcanIcon} alt="Delete trashcan image" />
                 </button>
             </div>

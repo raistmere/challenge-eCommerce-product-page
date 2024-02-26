@@ -1,5 +1,5 @@
 import './App.css'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProductPage from "./components/ProductPage/ProductPage.tsx";
 import PopupNavMenu from './components/PopupNavMenu/PopupNavMenu.tsx';
 import Cart from './components/Cart/Cart.tsx';
@@ -12,8 +12,13 @@ function App() {
   const [cartView, setCartView] = useState<boolean>(false);
   const [popupNavView, setPopupNavView] = useState<boolean>(false);
   const [cartList, setCartList] = useState<Array<{ id:number, name:string, price: number, count:number }>>([]);
+  const [cartCount, setCartCount] = useState<number>(0);
   const currentProduct = useRef<{ id:number, name:string, price:number }>({id:1234, name:"Fall Limited Edition Sneakers", price: 125});
 
+  useEffect(() => {
+    let count = cartList.reduce((total, item) => total + item.count, 0);
+    setCartCount(count);
+  }, [cartList])
 
   const addToCart = (qtyCount: number) => {
     const newItem = { id: currentProduct.current.id, name: currentProduct.current.name, price: currentProduct.current.price, count: qtyCount};
@@ -52,6 +57,13 @@ function App() {
         <div className="rightSide">
           <button aria-label='open cart' onClick={() => setCartView(!cartView)}>
             <img src={cartIcon} alt="A cart icon" />
+            <div className="cartCountBox">
+              {cartCount !== 0 &&
+                <p>
+                  {cartCount}
+                </p>
+              }
+            </div>
           </button>
           <img src={avatarIcon} alt="An account avatar icon"/>
         </div>
