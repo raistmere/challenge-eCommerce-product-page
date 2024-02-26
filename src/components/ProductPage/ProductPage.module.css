@@ -204,12 +204,29 @@
                     
                     > button {
                         border-style: none;
+                        border-radius: 18%;
                         background-color: white;
-                        border-radius: 1rem;
 
                         > img {
                             width: 100%;
-                            border-radius: 1rem;
+                            height: 100%;
+                            border-radius: 15%;
+                        }
+                    }
+
+                    > .selectedThumbnail {
+                        border-style: solid;
+                        border-width: 3px;
+                        border-color: var(--color-orange);
+                        > img {
+                            filter:opacity(25%);
+                        }
+                    }
+
+                    > button:hover {
+                        
+                        > img {
+                            filter: opacity(50%);
                         }
                     }
                 }

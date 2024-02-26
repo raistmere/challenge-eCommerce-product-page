@@ -109,16 +109,16 @@ const ProductPage = (props: Props) => {
             <img src={largeImageGallery.current[largeImageIndex].src} alt={"desktop " + largeImageGallery.current[largeImageIndex].alt}/>
           </button>
           <div className={styles.thumbBox}>
-            <button onClick={() => setLargeImageIndex(0)}>
+            <button className={largeImageIndex === 0 ? styles.selectedThumbnail : ""} onClick={() => setLargeImageIndex(0)}>
               <img src={productThumb1} alt="select first image thubmnail"/>
             </button>
-            <button onClick={() => setLargeImageIndex(1)}>
+            <button className={largeImageIndex === 1 ? styles.selectedThumbnail : ""} onClick={() => setLargeImageIndex(1)}>
               <img src={productThumb2} alt="select second image thubmnail" />
             </button>
-            <button onClick={() => setLargeImageIndex(2)}>
+            <button className={largeImageIndex === 2 ? styles.selectedThumbnail : ""} onClick={() => setLargeImageIndex(2)}>
               <img src={productThumb3} alt="select third image thubmnail" />
             </button>
-            <button onClick={() => setLargeImageIndex(3)}>
+            <button className={largeImageIndex === 3 ? styles.selectedThumbnail : ""} onClick={() => setLargeImageIndex(3)}>
               <img src={productThumb4} alt="select fourth image thubmnail" />
             </button>
           </div>
