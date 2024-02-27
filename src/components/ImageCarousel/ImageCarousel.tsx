@@ -43,29 +43,36 @@ const ImageCarousel = (props: Props) => {
         <div id={styles.imageCarouselWrapper}>
             <div className={styles.CarouselBox}>
                 <button className={styles.closeButton} aria-label="x close button" onClick={() => props.closeCarouselMethod()}>
-                    <img src={closeIcon} alt="An X icon" />
+                    {/* <img src={closeIcon} alt="An X icon" /> */}
+                    <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+                        <path className={styles.pathCloseIcon} d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z" fill="#69707D" fill-rule="evenodd"/>
+                    </svg>
                 </button>
                 <div className={styles.bigImageBox}>
                     <img src={props.largeImageGallery[galleryIndex].src} alt={props.largeImageGallery[galleryIndex].alt}/>
                     <button className={styles.leftArrowButton} aria-label="previous image arrow button" onClick={() => previousImage()}>
-                        <img src={leftArrow} alt="A left arrow icon" />
+                        <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+                            <path className={styles.pathLeftArrow} d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/>
+                        </svg>
                     </button>
                     <button className={styles.rightArrowButton} aria-label="next image arrow button" onClick={() => nextImage()}>
-                        <img src={rightArrow} alt="A right arrow icon" />
+                        <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+                            <path className={styles.pathRightArrow} d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"/>
+                        </svg>
                     </button>
                 </div>
                 <div className={styles.thumbBox}>
-                    <button aria-label="view first large image button" onClick={() => viewImage(0)}>
-                    <img src={productThumb1} alt="A picture of the product"/>
+                    <button className={galleryIndex === 0 ? styles.selectedThumbnail : ""} aria-label="view first large image button" onClick={() => viewImage(0)}>
+                        <img src={productThumb1} alt="A picture of the product"/>
                     </button>
-                    <button aria-label="view second large image button" onClick={() => viewImage(1)}>
-                    <img src={productThumb2} alt="A thumbnail of the product" />
+                    <button className={galleryIndex === 1 ? styles.selectedThumbnail : ""} aria-label="view second large image button" onClick={() => viewImage(1)}>
+                        <img src={productThumb2} alt="A thumbnail of the product" />
                     </button>
-                    <button aria-label="view third large image button" onClick={() => viewImage(2)}>
-                    <img src={productThumb3} alt="A thumbnail of the product" />
+                    <button className={galleryIndex === 2 ? styles.selectedThumbnail : ""} aria-label="view third large image button" onClick={() => viewImage(2)}>
+                        <img src={productThumb3} alt="A thumbnail of the product" />
                     </button>
-                    <button aria-label="view fourth large image button" onClick={() => viewImage(3)}>
-                    <img src={productThumb4} alt="A thumbnail of the product" />
+                    <button className={galleryIndex === 3 ? styles.selectedThumbnail : ""} aria-label="view fourth large image button" onClick={() => viewImage(3)}>
+                        <img src={productThumb4} alt="A thumbnail of the product" />
                     </button>
                 </div>
             </div>
