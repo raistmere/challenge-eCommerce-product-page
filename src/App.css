@@ -130,9 +130,13 @@
             border-bottom-style: solid;
             border-color: var(--color-grayish-blue);
             border-width: 1px;
+            padding-bottom: 0;
+            height: 6rem;
     
             > .leftSide {
                 gap: 3rem;
+                align-items: flex-start;
+                height: 100%;
     
                 > button {
                     display: none;
@@ -140,20 +144,29 @@
     
                 > nav {
                     display: flex;
-                    align-items: center;
                     gap: 1rem;
+                    height: 100%;
                     
                     > a {
-                        font-size: 0.75rem;
+                        font-size: 0.90rem;
                         font-family: var(--font-kumbhSans-reg);
                         color: var(--color-dark-grayish-blue);
                         text-decoration: none;
+                        margin-top: 1.5%;
+                        height: 96%;
+                    }
+
+                    > a:hover {
+                        border-bottom-style: solid;
+                        border-color: var(--color-orange);
                     }
                 }
             }
 
             > .rightSide {
                 gap: 2rem;
+                align-items: flex-start;
+                height: 100%;
 
                 > img {
                     width: 3rem;

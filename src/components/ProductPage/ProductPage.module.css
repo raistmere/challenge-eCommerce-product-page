@@ -135,6 +135,10 @@
                 }
             }
 
+            > button:hover {
+                 filter: opacity(50%);
+            }
+
             > p {
                 font-family: var(--font-kumbhSans-bold);
                 font-size: 1.25rem;
@@ -161,6 +165,10 @@
                 font-size: 1rem;
                 color: var(--color-white);
             }
+        }
+
+        > .addCartButton:hover {
+            filter: opacity(50%);
         }
     }
 }
