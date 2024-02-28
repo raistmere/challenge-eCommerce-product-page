@@ -236,6 +236,22 @@
         > .productContentBox {
             grid-column: 3/4;
             grid-row: 2/3;
+            display: grid;
+            grid-template-columns: clamp(100px, 50%, 300px) clamp(100px, 50%, 400px);
+            grid-row: 1fr 1fr;
+
+            > .productInfoBox {
+                grid-column: 1/-1;
+                grid-row: 1/2;
+            }
+
+            > .productQtyBox {
+                grid-column: 1/2;
+            }
+
+            > .addCartButton {
+                grid-column: 2/-1;
+            }
         }
     }
 }
@@ -243,6 +259,10 @@
 @media screen and (min-width: 1000px) {
     #productPage {
         gap: 5rem;
+
+        > .productContentBox {
+            grid-template-columns: clamp(100px, 40%, 400px) clamp(100px, 60%, 400px);
+        }
     }
 }
 

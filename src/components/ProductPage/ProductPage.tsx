@@ -1,4 +1,4 @@
-import { ReactElement, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from "./ProductPage.module.css";
 import ImageCarousel from '../ImageCarousel/ImageCarousel';
 
@@ -125,6 +125,7 @@ const ProductPage = (props: Props) => {
         </div>
       </div>
       <div className={styles.productContentBox}>
+        {/*  */}
         <div className={styles.productInfoBox}>
           <button>SNEAKER COMPANY</button>
           <h2>Fall Limited Edition Sneakers</h2>
@@ -138,6 +139,7 @@ const ProductPage = (props: Props) => {
             <p className={styles.productOriginalPrice}>$250.00</p>
           </div>
         </div>
+        {/*  */}
         <div className={styles.productQtyBox}>
           <button aria-label="Decrement count" onClick={decrementCount}>
             <img src={minusIcon} alt="A minus icon" />
@@ -147,6 +149,7 @@ const ProductPage = (props: Props) => {
             <img src={plusIcon} alt="A plus icon" />
           </button>
         </div>
+        {/*  */}
         <button className={styles.addCartButton} onClick={() => { props.addMethod(qtyCount) }}>
           <img src={cartIcon} alt="A cart icon" />
           <h2>Add to Cart</h2>
