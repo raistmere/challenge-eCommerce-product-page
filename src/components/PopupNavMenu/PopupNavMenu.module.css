@@ -30,7 +30,14 @@
             background-color: var(--color-white);
 
             > a {
+                width: fit-content;
                 text-decoration: none;
+            }
+
+            > a:hover { 
+                border-bottom-style: solid;
+                border-color: var(--color-orange);
+                border-width: 2px;
             }
         }
     }
