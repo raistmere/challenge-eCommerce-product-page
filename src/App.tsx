@@ -5,7 +5,6 @@ import PopupNavMenu from './components/PopupNavMenu/PopupNavMenu.tsx';
 import Cart from './components/Cart/Cart.tsx';
 import hamIcon from "./assets/images/icon-menu.svg";
 import logoImg from "./assets/images/logo.svg";
-import cartIcon from "./assets/images/icon-cart.svg";
 import avatarIcon from "./assets/images/image-avatar.png";
 
 function App() {

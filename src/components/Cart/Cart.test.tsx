@@ -1,6 +1,5 @@
-import { describe, expect, test, vi } from "vitest";
+import { describe, expect, test} from "vitest";
 import { render } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import Cart from "./Cart.tsx";
 
 let mockCartList: Array<{ id:number, name:string, price:number, count:number }> = [
@@ -20,7 +19,6 @@ const mockUpdateCartListMethod = (index:number) => {
 describe("Cart Functionality", () => {
     // Arrange
     const ren = render(<Cart items={mockCartList} updateCartMethod={mockUpdateCartListMethod}/>);
-    const user = userEvent.setup();
 
     test("Check if items appear in cart", () => {
         // Assert

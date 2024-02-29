@@ -1,14 +1,10 @@
 import styles from "./ImageCarousel.module.css";
 
 // Images && Icons
-import productImage1 from "../../assets/images/image-product-1.jpg";
 import productThumb1 from "../../assets/images/image-product-1-thumbnail.jpg";
 import productThumb2 from "../../assets/images/image-product-2-thumbnail.jpg";
 import productThumb3 from "../../assets/images/image-product-3-thumbnail.jpg";
 import productThumb4 from "../../assets/images/image-product-4-thumbnail.jpg";
-import leftArrow from "../../assets/images/icon-previous.svg";
-import rightArrow from "../../assets/images/icon-next.svg";
-import closeIcon from "../../assets/images/icon-close.svg";
 import { useState } from "react";
 
 type Props = {
